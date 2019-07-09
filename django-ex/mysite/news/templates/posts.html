@@ -1,0 +1,14 @@
+{% extends "wrapper.html"%}
+{% load staticfiles %}
+{% block content %}
+    {% for item in object_list %}
+        <div class="img-thumbnail">
+            <a href="/news/{{item.id}}"><h3>{{item.title}}</h3></a>
+            <h5>{{item.date|date:"d-m-Y"}}</h5>
+            <div class="container">
+                <img src="{% static item.imagelink %}" class="img-thumbnail" style="width: 200px">
+                <hr>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
