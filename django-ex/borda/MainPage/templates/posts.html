@@ -1,0 +1,10 @@
+{% extends "wrapper.html"%}
+{% load staticfiles %}
+{% block content %}
+    {% for item in category %}
+        <div class="img-thumbnail">
+            <a href="#"><h3>{{item.category_name}}</h3></a>
+            <h5>{{item.category_info}}</h5>
+        </div>
+    {% endfor %}
+{% endblock %}
