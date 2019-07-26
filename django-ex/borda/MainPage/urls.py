@@ -13,5 +13,6 @@ urlpatterns = [
     # Examples:
     # url(r'^$', 'borda.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^$',views.CategoriesView.as_view())  
+    url(r'^$',views.CategoriesView.as_view()),
+    url(r'^(?P<pk>\d+)$',views.ThreadsView.as_view())
 ]
