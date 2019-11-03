@@ -1,11 +1,7 @@
 {% extends "wrapper.html"%}
 {% load staticfiles %}
 {% block content %}
-{% for item in info %}
-    {% if item.place_id == pk %}
-    <h2 class="text-info">{{item.info_second_name}}</h2>
-    <h4 class="text">{{item.info_maplink}}</h4>
-    <h6 class="text">{{item.info_price}}</h6>
-    {% endif %}
-{% endfor %}
+    <h2 class="text-info">{{place.info_second_name}}</h2>
+    <h4 class="text">{{place.info_maplink}}</h4>
+    <h6 class="text">{{place.info_price}}</h6>
 {% endblock %}

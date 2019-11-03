@@ -21,5 +21,5 @@ Including another URLconf
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.PlacesView.as_view()),
-    re_path(r'^(?P<pk>\d+)$',views.InfoView.as_view()),
+    path('<int:place_id>/',views.info, name='info'),
 ]
