@@ -1,0 +1,12 @@
+{% extends "wrapperD.html"%}
+{% load static %}
+{% block content %}
+<a class="p-link btn btn-success" href="/D/form">Добавить статью</a>
+</br>
+</br>
+{% for article in articles %}
+    <h3><a href="detail/{{article.id}}">{{article.title}}</a></h3>
+    <img src={{MEDIA_URL}}{{article.preview_image}}></img>
+    <p>{{article.preview_text}}</p>
+{% endfor %}
+{% endblock %}

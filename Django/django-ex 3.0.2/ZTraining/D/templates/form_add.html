@@ -1,0 +1,27 @@
+{% extends "wrapperD.html"%}
+{% block content %}
+<div fieldWrapper id="list-elements">
+    <div id="uploading">
+        </br>
+        Блок   
+        {% if case == 1 %}
+            <input type="input" name="{{position}}.header" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" style="width: 600px;" placeholder="Заголовок" maxlength="200" required="">         
+        {% endif %}
+        {% if case == 2 %}
+            <textarea name="{{position}}.paragraph" cols="40" rows="10" type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" style="resize: none;" placeholder="Абзац" maxlength="200" required=""></textarea>      
+        {% endif %}
+        {% if case == 3 %}
+            <input type="file" name="{{position}}.image" class="" id="inlineFormInputName2" placeholder="Изображение" accept="image/*" required="">
+        {% endif %}
+        {% if case == 4 %}
+            <input type="input" name="{{position}}.quote" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" style="width: 1000px;" placeholder="Цитата" maxlength="200" required="">
+        {% endif %}
+    </div>
+    <div id="loading">
+        <a class="p-link btn btn-warning" href="?upload=1&position={{position}}">Добавить Заголовок</a>
+        <a class="p-link btn btn-warning" href="?upload=2&position={{position}}">Добавить Параграф</a> 
+        <a class="p-link btn btn-warning" href="?upload=3&position={{position}}">Добавить Изображение</a>
+        <a class="p-link btn btn-warning" href="?upload=4&position={{position}}">Добавить Цитату</a>
+    </div>
+</div>
+{% endblock %}

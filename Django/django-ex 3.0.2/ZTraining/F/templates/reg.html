@@ -1,0 +1,27 @@
+{% extends "wrapper.html"%}
+{% load static %}
+{% block content %}
+<h4>Чтобы писать сообщения, единоразово войдите:</h3>
+</br>
+<form class="form-inline" method="POST" action="/C/POST/" required>
+    {% csrf_token %}
+    <label class="sr-only" for="inlineFormInputName2">Name</label>
+        <div fieldWrapper >
+            {{form.text.errors}}
+            {{form.realname}}
+        </div>
+
+    <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <div class="input-group-prepend">
+        <div class="input-group-text">@</div>
+        </div>
+        <div fieldWrapper >
+            {{form.username}}
+        </div>
+    </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-2">Одноразовый вход</button>
+</form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "wrapperB.html"%}
+{% load static %}
+{% block content %}
+    <Form method = "POST" action="/B/POST/"> #бла бла бла
+    {% csrf_token %}
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <button class="btn btn-success" type="submit">Отправить</button>
+            </div>
+            <div fieldWrapper >
+                {{form.text.errors}}
+                {{form.text}}
+            </div>
+        </div>
+    </Form>
+    {% for item in text %}
+    <div class="alert alert-success" role="alert">
+        <strong>Message!</strong> {{item.form_text}}
+    </div>
+    {% endfor %}
+{% endblock %}

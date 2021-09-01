@@ -1,0 +1,35 @@
+{% extends "wrapperD.html"%}
+{% load static %}
+{% block content %}
+    <h3>{{article.title}}</h3>
+    <img src={{MEDIA_URL}}{{article.preview_image}}></img>
+    <p>{{article.preview_text}}</p>
+
+
+    {% for index in article.parts|get_range %}
+        {% for header in headers %}
+            {% if index == header.position%}
+                <h3>{{header.text}}</h3>
+            {% endif %}
+        {% endfor %}
+
+        {% for paragraph in paragraphs %}
+            {% if index == paragraph.position%}
+                <p>{{paregraph.text}}</p>
+            {% endif %}
+        {% endfor %}
+
+        {% for image in images %}
+            {% if index == image.position%}
+                <img src={{MEDIA_URL}}{{image.image}}></img>
+            {% endif %}
+        {% endfor %}
+
+        {% for quote in quotes %}
+            {% if index == quote.position%}
+                <p><i>{{quote.quote}}</i></p>
+            {% endif %}
+        {% endfor %}
+    {% endfor %} 
+
+{% endblock %}

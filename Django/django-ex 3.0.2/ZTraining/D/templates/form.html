@@ -1,0 +1,65 @@
+{% extends "wrapperD.html"%}
+{% load static %}
+{% block content %}
+<h4>Создание статьи</h3>
+</br>
+    <Form method = "POST" action="/D/POST/" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="input-group">
+            <div fieldWrapper id="list-elements">
+                {{form.title.errors}}
+                {{form.title}}
+                </br>
+                {{form.image.errors}}
+                {{form.image}}
+                </br>
+                </br>
+                {{form.preview_text.errors}}
+                {{form.preview_text}}
+            </div>
+        </div>
+        </br>
+        <div id="loading">
+            <a class="p-link btn btn-warning" href="?upload=1&position=0">Добавить Заголовок</a>
+            <a class="p-link btn btn-warning" href="?upload=2&position=0">Добавить Параграф</a> 
+            <a class="p-link btn btn-warning" href="?upload=3&position=0">Добавить Изображение</a>
+            <a class="p-link btn btn-warning" href="?upload=4&position=0">Добавить Цитату</a>
+        </div>
+        </br>
+        </br>
+        <button class="btn btn-success" type="submit">Отправить</button>
+    </Form>
+
+
+    <script type="text/javascript">
+
+        function ajax_pagination() {
+        $('#loading a.p-link').each((index, elem) => {
+        $(elem).click((e) => {
+        e.preventDefault() // Останавливаем событие
+        let page_url = $(elem).attr('href')
+
+        $.ajax({
+        url: page_url,
+        type: 'GET',
+        success: (data) => {
+        //$('#list-elements').empty()
+        $('#list-elements').append($(data).find('#uploading').html())
+
+        $('#loading').empty()
+        $('#loading').append($(data).find('#loading').html())        
+        }
+        })
+        })
+        })
+        }
+
+        $(document).ready(function() {
+        ajax_pagination()
+        })
+
+        $(document).ajaxStop(function() {
+        ajax_pagination()
+        })  
+    </script>
+{% endblock %}

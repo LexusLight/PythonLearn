@@ -1,0 +1,5 @@
+Django - бэкэнд фреймворк
+django-ckeditor ~ html редактор для Django
+Pillow - работа с графикой
+embed-video - работа с линками на видео
+PyQt - визуал\формы 

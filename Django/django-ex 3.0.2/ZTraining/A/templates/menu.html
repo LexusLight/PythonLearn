@@ -1,0 +1,12 @@
+{% extends "wrapperA.html"%}
+{% load static %}
+{% block content %}
+    <div>
+        {% for item in pages %}
+        <h4>{{item.page_name}}</h4>
+        <a class="btn btn-success btn-lg" href="{{item.page_link}}/">Урок {{forloop.counter}}</a>
+        </br>
+        </br>
+        {% endfor %}
+    </div>
+{% endblock %}
